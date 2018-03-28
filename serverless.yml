@@ -1,0 +1,20 @@
+service: changeme
+
+provider:
+  name: aws
+  stage: dev
+  region: us-east-1
+  runtime: nodejs6.10
+
+functions:
+  # Example GET request
+  test:
+    handler: handler.test
+    events:
+      - http:
+          path: test
+          method: GET
+
+plugins:
+  - serverless-webpack
+  - serverless-offline
